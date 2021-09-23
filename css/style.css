@@ -1,0 +1,11 @@
+.sketchpad {
+	border: 1px solid #000;
+	display: flex;
+	width: 562px;
+	flex-wrap: wrap;
+}
+.grid-block {
+	width: 12px;
+	height: 12px;
+	border: 1px solid #000;
+}

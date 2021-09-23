@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Etch-A-Sketch</title>
+	<link rel="stylesheet" href="css/modern-normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<main>
+		<h1>Etch-A-Sketch</h1>
+		<div class="container">
+			<div class="controls">
+				<label for="grid-size">Grid Size: </label>
+				<input id="grid-size" type="number" step="8" min="8" max="64" value="24">
+		
+				<label for="color">Brush color: </label>
+				<input id="color" type="color" value="#000000">
+		
+				<label for="bg-color">Background color: </label>
+				<input id="bg-color" type="color" value="#ffffff"><br>
+		
+				<button id="eraser" class="button button-erase">Eraser</button>
+				<button id="rainbow" class="button button-rainbow">Rainbow brush</button>
+				<button id="clear" class="button button-clear">Clear board</button>
+				<button id="toggle-grid" class="button button-grid">Toggle grid lines</button>
+			</div>
+			<div id="sketchpad" class="sketchpad">
+				
+			</div>
+		</div>
+	</main>
+	<footer>
+		
+	</footer>
+	<script src="app.js"></script>
+</body>
+</html>
