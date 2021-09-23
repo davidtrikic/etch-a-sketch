@@ -8,11 +8,23 @@ window.onload = createGrid;
 
 function createGrid() {
 	let square, i;
-	for (i = 0; i < gridSizeInput.value * gridSizeInput.value; i++) {
+
+	clearGrid();
+	sketchpad.setAttribute('class', `sketchpad sketchpad-${gridSizeInput.value}`);
+
+	for (i = 0; i < gridSizeInput.value ** 2; i++) {
 		square = document.createElement('div');
-		square.setAttribute('class', `grid-square grid-square${gridSizeInput.value} draggable="false"`);
+		square.setAttribute('class', `grid-square grid-square${gridSizeInput.value}`);
 		sketchpad.appendChild(square);
 	}
-	alert(gridSizeInput.value);
 }
 
+gridSizeInput.addEventListener('change', function() {
+	createGrid();
+})
+
+function clearGrid() {
+	while (sketchpad.firstChild) {
+		sketchpad.removeChild(sketchpad.firstChild);
+	}
+}

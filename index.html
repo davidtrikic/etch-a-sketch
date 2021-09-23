@@ -7,10 +7,10 @@
 	<link rel="stylesheet" href="css/modern-normalize.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body ondragstart=" return false">
 	<main>
 		<h1>Etch-A-Sketch</h1>
-		<div class="container" draggable="false">
+		<div class="container">
 			<div class="controls">
 				<label for="grid-size">Grid Size: </label>
 				<input id="grid-size" type="number" step="8" min="8" max="64" value="24">
@@ -26,7 +26,7 @@
 				<button id="clear" class="button button-clear">Clear board</button>
 				<button id="toggle-grid" class="button button-grid">Toggle grid lines</button>
 			</div>
-			<div id="sketchpad" class="sketchpad">
+			<div id="sketchpad" class="sketchpad" draggable="false">
 				
 			</div>
 		</div>
