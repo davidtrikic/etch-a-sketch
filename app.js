@@ -1,7 +1,14 @@
+"use strict";
 const sketchPad = document.getElementById('sketchpad');
 const gridSizeInput = document.getElementById('grid-size');
 const brushColorInput = document.getElementById('color');
+const backgroundColorInput = document.getElementById('bg-color');
+const eraseButton = document.getElementById('eraser');
+const randomColorButton = document.getElementById('random');
+const clearButton = document.getElementById('clear');
+const toggleGridButton = document.getElementById('toggle-grid');
 const root = document.documentElement;
+let brushColor, isRandom = false, isEraser = false;
 
 window.onload = createGrid;
 
@@ -21,21 +28,14 @@ function createGrid() {
 
 		square.addEventListener('mousemove', paintSquare);
 	}
+	getBrushcolor();
+	getBackgroundColor();
 }
+
 // Change grid size on input element
 gridSizeInput.addEventListener('change', function() {
 	createGrid();
-})
-
-
-let brushColor = brushColorInput.value; // Get initial brush color
-brushColorInput.addEventListener('change', getBrushcolor);
-
-
-function getBrushcolor() {
-	brushColor = brushColorInput.value;
-}
-
+});
 
 // Empty grid brefore creating a new one
 function clearGrid() {
@@ -44,10 +44,81 @@ function clearGrid() {
 	}
 }
 
+brushColorInput.addEventListener('change', getBrushcolor);
+
+function getBrushcolor() {
+	if(!isEraser) {
+		brushColor = brushColorInput.value;
+		root.style.setProperty('--hover-color', brushColor)
+	}
+}
+
 function paintSquare(e) {
 	// Paint div if mouse button is pressed
 	if (e.buttons == 1) {
+		if (isRandom) {
+			e.target.style.background = `hsl(${Math.round(Math.random() * 360)}, 100%, 50%)`;
+			return;
+		}
 		e.target.style.background = brushColor;
 	}
 }
 
+
+backgroundColorInput.addEventListener('change', getBackgroundColor);
+
+function getBackgroundColor() {
+
+	sketchpad.style.backgroundColor = backgroundColorInput.value;
+}
+
+
+eraseButton.addEventListener('click', toggleEraser);
+
+function toggleEraser() {
+	
+	if(isRandom) toggleRandom();
+
+	if (!isEraser) {
+		isEraser = true;
+		brushColor = backgroundColorInput.value;
+		eraseButton.style.backgroundColor = 'red';
+		
+	} 
+	else {
+		isEraser = false;
+		getBrushcolor();
+		eraseButton.style.backgroundColor = 'initial';		
+	}
+}
+
+randomColorButton.addEventListener('click', toggleRandom);
+
+function toggleRandom() {
+
+	if (isEraser) toggleEraser();
+
+	if (!isRandom) {
+		isRandom = true;
+		randomColorButton.style.backgroundColor = 'red';
+	}
+	else {
+		isRandom = false;
+		randomColorButton.style.backgroundColor = 'initial';
+	} 
+}
+
+clearButton.addEventListener('click', function() {
+
+	sketchpad.childNodes.forEach(function(node) {
+		if (node.style.backgroundColor != '')
+			node.style.backgroundColor = '';
+	});
+});
+
+toggleGridButton.addEventListener('click', function() {
+
+	sketchpad.childNodes.forEach(function(node) {
+		node.classList.toggle('grid-square');
+	});
+})
