@@ -1,18 +1,22 @@
+:root {
+	--grid-size: repeat(24, minmax(9px, 72px));
+	--hover-color: #000;
+}
+
 .sketchpad {
 	border-right: 1px solid rgba(0, 0, 0, .5);
 	border-bottom: 1px solid rgba(0, 0, 0, .5);
 	width: 577px;
 	height: 577px;
 	display: grid;
-	grid-template-columns: repeat(32, minmax(9px, 72px));
-	grid-template-rows: repeat(32, minmax(9px, 72px));
+	grid-template-columns: var(--grid-size);
+	grid-template-rows: var(--grid-size);
 }
-.sketchpad-64 {
-	grid-template-columns: repeat(64, minmax(9px, 72px));
-	grid-template-rows: repeat(64, minmax(9px, 72px));
-}
+
 .grid-square {
 	border-top: 1px solid rgba(0 ,0, 0, .5);
 	border-left: 1px solid rgba(0 ,0, 0, .5);
-
+}
+.grid-square:hover {
+	background: var(--hover-color);
 }
