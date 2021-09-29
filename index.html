@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Etch-A-Sketch</title>
 	<link rel="stylesheet" href="css/modern-normalize.css">
+	<link rel="stylesheet" href="css/halfmoon.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body ondragstart=" return false">
@@ -22,18 +23,19 @@
 				<input id="bg-color" type="color" value="#ffffff"><br>
 		
 				<button id="eraser" class="button button-erase">Eraser</button>
+
+				<input type="checkbox" id="eraser1" class="">
 				<button id="random" class="button button-random">Random color</button>
 				<button id="clear" class="button button-clear">Clear board</button>
 				<button id="toggle-grid" class="button button-grid">Toggle grid lines</button>
 			</div>
-			<div id="sketchpad" class="sketchpad" draggable="false">
-				
-			</div>
+			<div id="sketchpad" class="sketchpad" draggable="false"></div>
 		</div>
 	</main>
 	<footer>
 		
 	</footer>
-	<script src="app.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/halfmoon.js"></script>
 </body>
 </html>

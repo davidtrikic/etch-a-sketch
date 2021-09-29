@@ -3,11 +3,17 @@
 	--hover-color: #000;
 }
 
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .sketchpad {
 	border-right: 1px solid rgba(0, 0, 0, .5);
 	border-bottom: 1px solid rgba(0, 0, 0, .5);
-	width: 577px;
-	height: 577px;
+	flex-shrink: 0;
+	width: 320px;
+	height: 320px;
 	display: grid;
 	grid-template-columns: var(--grid-size);
 	grid-template-rows: var(--grid-size);
@@ -19,4 +25,51 @@
 }
 .grid-square:hover {
 	background: var(--hover-color);
+}
+
+
+
+
+/* Media Queries - keep sketchpad 1:1 ratio across different screen sizes */
+
+@media screen and (min-width: 370px) {
+	.sketchpad {
+		width: 370px;
+		height: 370px;
+	}
+}
+@media screen and (min-width: 410px) {
+	.sketchpad {
+		width: 405px;
+		height: 405px;
+	}
+}
+@media screen and (min-width: 460px) {
+	.sketchpad {
+		width: 460px;
+		height: 460px;
+	}
+}
+@media screen and (min-width: 520px) {
+	.sketchpad {
+		width: 510px;
+		height: 510px;
+	}
+}
+@media screen and (min-width: 580px) {
+	.sketchpad {
+		width: 570px;
+		height: 570px;
+	}
+}
+@media screen and (min-width: 630px) {
+	.sketchpad {
+		width: 620px;
+		height: 620px;
+	}
+}
+@media screen and (min-width: 960px) {
+	.container {
+		flex-direction: row;
+	}
 }
