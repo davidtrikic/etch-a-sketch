@@ -77,13 +77,11 @@ function toggleEraser() {
 		isEraser = true;
 		brushColor = backgroundColorInput.value;
 		eraseButton.style.backgroundColor = 'red';
-		
+		return;	
 	} 
-	else {
-		isEraser = false;
-		getBrushcolor();
-		eraseButton.style.backgroundColor = 'initial';		
-	}
+	isEraser = false;
+	getBrushcolor();
+	eraseButton.style.backgroundColor = 'initial';		
 }
 
 randomColorButton.addEventListener('click', toggleRandom);
@@ -94,11 +92,10 @@ function toggleRandom() {
 	if (!isRandom) {
 		isRandom = true;
 		randomColorButton.style.backgroundColor = 'red';
+		return;
 	}
-	else {
-		isRandom = false;
-		randomColorButton.style.backgroundColor = 'initial';
-	} 
+	isRandom = false;
+	randomColorButton.style.backgroundColor = 'initial'; 
 }
 
 clearButton.addEventListener('click', function() {
