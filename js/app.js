@@ -3,8 +3,8 @@ const sketchPad = document.getElementById('sketchpad');
 const gridSizeInput = document.getElementById('grid-size');
 const brushColorInput = document.getElementById('color');
 const backgroundColorInput = document.getElementById('bg-color');
-const eraseButton = document.getElementById('eraser');
-const randomColorButton = document.getElementById('random');
+const eraserSwitch = document.getElementById('eraser');
+const randomSwitch= document.getElementById('random');
 const clearButton = document.getElementById('clear');
 const toggleGridButton = document.getElementById('toggle-grid');
 const root = document.documentElement;
@@ -25,7 +25,7 @@ function createGrid() {
 		square.setAttribute('class', `grid-square`);
 		sketchpad.appendChild(square);
 
-		square.addEventListener('mousemove', paintSquare);
+		square.addEventListener('mouseover', paintSquare);
 	}
 	getBrushcolor();
 	getBackgroundColor();
@@ -45,16 +45,18 @@ function clearGrid() {
 brushColorInput.addEventListener('change', getBrushcolor);
 
 function getBrushcolor() {
-	if(!isEraser) { // Block brush color switch if eraser is enabled
-		brushColor = brushColorInput.value;
-		root.style.setProperty('--hover-color', brushColor);
-	}
+	brushColor = brushColorInput.value;
+	root.style.setProperty('--hover-color', brushColor);
 }
 
 function paintSquare(e) {
 	if (e.buttons == 1) { // Paint div if mouse button is pressed
 		if (isRandom) {
 			e.target.style.background = `hsl(${Math.round(Math.random() * 360)}, 100%, 50%)`;
+			return;
+		}
+		if (isEraser) {
+			e.target.style.background = '';
 			return;
 		}
 		e.target.style.background = brushColor;
@@ -68,34 +70,34 @@ function getBackgroundColor() {
 	sketchpad.style.backgroundColor = backgroundColorInput.value;
 }
 
-eraseButton.addEventListener('click', toggleEraser);
+
+eraserSwitch.addEventListener('change', toggleEraser);
 
 function toggleEraser() {
-	if(isRandom) toggleRandom();
 
-	if (!isEraser) {
+	if(randomSwitch.checked) {
+		randomSwitch.checked = false;
+		isRandom = false;	
+	}
+	if (eraserSwitch.checked) {
 		isEraser = true;
-		brushColor = backgroundColorInput.value;
-		eraseButton.style.backgroundColor = 'red';
 		return;	
-	} 
+	}
 	isEraser = false;
+
 	getBrushcolor();
-	eraseButton.style.backgroundColor = 'initial';		
 }
 
-randomColorButton.addEventListener('click', toggleRandom);
+randomSwitch.addEventListener('change', toggleRandomColor);
 
-function toggleRandom() {
-	if (isEraser) toggleEraser();
+function toggleRandomColor() {
+	if (eraserSwitch.checked) eraserSwitch.checked = false;
 
-	if (!isRandom) {
+	if (randomSwitch.checked) {
 		isRandom = true;
-		randomColorButton.style.backgroundColor = 'red';
 		return;
 	}
 	isRandom = false;
-	randomColorButton.style.backgroundColor = 'initial'; 
 }
 
 clearButton.addEventListener('click', function() {

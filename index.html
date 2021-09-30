@@ -21,11 +21,16 @@
 		
 				<label for="bg-color">Background color: </label>
 				<input id="bg-color" type="color" value="#ffffff"><br>
-		
-				<button id="eraser" class="button button-erase">Eraser</button>
 
-				<input type="checkbox" id="eraser1" class="">
-				<button id="random" class="button button-random">Random color</button>
+				<div class="custom-switch">
+  					<input type="checkbox" id="eraser" value="">
+  					<label for="eraser">Toggle Eraser</label>
+				</div>
+				<div class="custom-switch">
+  					<input type="checkbox" id="random" value="">
+  					<label for="random">Random color</label>
+				</div>
+
 				<button id="clear" class="button button-clear">Clear board</button>
 				<button id="toggle-grid" class="button button-grid">Toggle grid lines</button>
 			</div>
