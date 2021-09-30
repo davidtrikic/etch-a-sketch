@@ -22,17 +22,25 @@
 				<label for="bg-color">Background color: </label>
 				<input id="bg-color" type="color" value="#ffffff"><br>
 
-				<div class="custom-switch">
-  					<input type="checkbox" id="eraser" value="">
-  					<label for="eraser">Toggle Eraser</label>
-				</div>
-				<div class="custom-switch">
-  					<input type="checkbox" id="random" value="">
-  					<label for="random">Random color</label>
+				<div class="row">
+					<div class="custom-switch col col-sm-4">
+	  					<input type="checkbox" id="eraser" value="">
+	  					<label for="eraser">Toggle Eraser</label>
+					</div>
+					<div class="custom-switch col col-sm-4">
+	  					<input type="checkbox" id="random" value="">
+	  					<label for="random">Random color</label>
+					</div>
+					<div class="custom-switch col col-sm-4">
+	  					<input type="checkbox" id="toggle-grid" value="">
+	  					<label for="toggle-grid">Toggle grid lines</label>
+					</div>
 				</div>
 
-				<button id="clear" class="button button-clear">Clear board</button>
-				<button id="toggle-grid" class="button button-grid">Toggle grid lines</button>
+				<!-- <button id="clear" class="button button-clear">Clear board</button> -->
+				<div class="col-sm-3">
+				    <button id="clear" class="btn btn-primary btn-block" type="button">Clear board</button>
+  				</div>
 			</div>
 			<div id="sketchpad" class="sketchpad" draggable="false"></div>
 		</div>

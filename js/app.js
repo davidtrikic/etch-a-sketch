@@ -6,11 +6,17 @@ const backgroundColorInput = document.getElementById('bg-color');
 const eraserSwitch = document.getElementById('eraser');
 const randomSwitch= document.getElementById('random');
 const clearButton = document.getElementById('clear');
-const toggleGridButton = document.getElementById('toggle-grid');
+const gridLineSwitch = document.getElementById('toggle-grid');
 const root = document.documentElement;
 let brushColor, isRandom = false, isEraser = false;
 
 window.onload = createGrid;
+
+
+// Change grid size on input element
+gridSizeInput.addEventListener('change', function() {
+	createGrid();
+});
 
 function createGrid() {
 	let square, i;
@@ -18,7 +24,7 @@ function createGrid() {
 	clearGrid(); // Empty grid before creating a new one
 
 	// Set CSS grid size according to input value
-	root.style.setProperty('--grid-size', `repeat(${gridSizeInput.value}, minmax(9px, 72px))`);
+	root.style.setProperty('--grid-size', `repeat(${gridSizeInput.value}, minmax(1px, 72px))`);
 
 	for (i = 0; i < gridSizeInput.value ** 2; i++) {
 		square = document.createElement('div');
@@ -31,16 +37,12 @@ function createGrid() {
 	getBackgroundColor();
 }
 
-// Change grid size on input element
-gridSizeInput.addEventListener('change', function() {
-	createGrid();
-});
-
 function clearGrid() {
 	while (sketchpad.firstChild) {
 		sketchpad.removeChild(sketchpad.firstChild);
 	}
 }
+
 
 brushColorInput.addEventListener('change', getBrushcolor);
 
@@ -48,6 +50,14 @@ function getBrushcolor() {
 	brushColor = brushColorInput.value;
 	root.style.setProperty('--hover-color', brushColor);
 }
+
+
+backgroundColorInput.addEventListener('change', getBackgroundColor);
+
+function getBackgroundColor() {
+	sketchpad.style.backgroundColor = backgroundColorInput.value;
+}
+
 
 function paintSquare(e) {
 	if (e.buttons == 1) { // Paint div if mouse button is pressed
@@ -64,17 +74,9 @@ function paintSquare(e) {
 }
 
 
-backgroundColorInput.addEventListener('change', getBackgroundColor);
-
-function getBackgroundColor() {
-	sketchpad.style.backgroundColor = backgroundColorInput.value;
-}
-
-
 eraserSwitch.addEventListener('change', toggleEraser);
 
 function toggleEraser() {
-
 	if(randomSwitch.checked) {
 		randomSwitch.checked = false;
 		isRandom = false;	
@@ -101,14 +103,12 @@ function toggleRandomColor() {
 }
 
 clearButton.addEventListener('click', function() {
-
 	sketchpad.childNodes.forEach(function(node) {
 		node.style.backgroundColor = '';
 	});
 });
 
-toggleGridButton.addEventListener('click', function() {
-
+gridLineSwitch.addEventListener('click', function() {
 	sketchpad.childNodes.forEach(function(node) {
 		node.classList.toggle('grid-square');
 	});
