@@ -3,16 +3,18 @@
 	--hover-color: #000;
 }
 
-.container {
-	display: flex;
-	flex-direction: column;
-	min-width: 320px;
+h1 {
+	font-size: 3.5rem;
+}
+input[type="color"] {
+	width: 32px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
 }
 
 .sketchpad {
 	border-right: 1px solid rgba(0, 0, 0, .5);
 	border-bottom: 1px solid rgba(0, 0, 0, .5);
-	flex-shrink: 0;
 	width: 320px;
 	height: 320px;
 	display: grid;
@@ -27,11 +29,10 @@
 .grid-square:hover {
 	background-color: var(--hover-color);
 }
-input[type="color"] {
-	width: 32px;
-	border: 1px solid #ddd;
-	border-radius: 4px;
+#grid-size {
+	margin-left: 2.5rem;
 }
+
 
 
 /* Media Queries - keep sketchpad 1:1 ratio across different screen sizes */

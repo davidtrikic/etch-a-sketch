@@ -1,72 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Etch-A-Sketch</title>
-	<link rel="stylesheet" href="css/modern-normalize.css">
-	<link rel="stylesheet" href="css/halfmoon.css">
-	<link rel="stylesheet" href="css/style.css">
-</head>
-<body ondragstart=" return false">
-	<main>
-		<h1 class="text-center">Etch-A-Sketch</h1>
-		<div class="container">
-			<div class="controls p-5 pb-20 p-sm-10">
-				<div class="row pb-10">
-					<label for="grid-size" class="col-5 col-sm-4">Select Grid Size: </label>
-					<select class="form-control col-3" id="grid-size">
-					  <option value="" selected="selected" disabled="disabled">Select size</option>
-					  <option value="8">8</option>
-					  <option value="16" selected="selected">16</option>
-					  <option value="24">24</option>
-					  <option value="32">32</option>
-					  <option value="40">40</option>
-					  <option value="48">48</option>
-					  <option value="56">56</option>
-					  <option value="64">64</option>
-					</select>
-				</div>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Etch-A-Sketch</title>
+		<link rel="stylesheet" href="css/modern-normalize.css">
+		<link rel="stylesheet" href="css/halfmoon.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="https://kit.fontawesome.com/aacf8c8876.js" crossorigin="anonymous"></script>
+	</head>
+	<body ondragstart="return false" data-set-preferred-mode-onload="true">
 		
-				<div class="row pb-10">
-					<div class="col-6">
-						<label for="color">Brush color: </label>
+		<!-- Page wrapper with .with-sidebar class -->
+		<div class="page-wrapper with-sidebar with-navbar" data-sidebar-type="full-height overlayed-sm-and-down">
+			<div class="sidebar-overlay" onclick="halfmoon.toggleSidebar()"></div>
+			<nav class="navbar d-flex justify-content-between">
+				<div class="navbar-content">
+					<button class="btn btn-action" type="button" onclick="halfmoon.toggleSidebar()">
+					<i class="fa fa-bars" aria-hidden="true"></i>
+					</button>
+				</div>
+				<h1 class="navbar-text text-bold mb-10">
+				<img src="..." alt="">
+				Brand
+				</h1>
+				<div class="navbar-content">
+					<button class="btn btn-action" type="button" onclick="halfmoon.toggleDarkMode()">
+					<i class="far fa-moon" aria-hidden="true"></i>
+					</button>
+				</div>
+			</nav>
+			<!-- Sidebar (immediate child of the page wrapper) -->
+			<div class="sidebar">
+				<div class="sidebar-menu">
+					<!-- Sidebar brand -->
+					<h2 class="sidebar-brand mb-20">Controls</h2>
+					
+					<!-- Sidebar links and titles -->
+					<h3 class="sidebar-title">Grid Size</h3>
+					<div class="sidebar-divider"></div>
+					<label for="grid-size" class="sidebar-link">Select Grid Size: </label>
+					<select class="form-control col-6" id="grid-size">
+						<option value="" selected="selected" disabled="disabled">Select size</option>
+						<option value="8">8</option>
+						<option value="16" selected="selected">16</option>
+						<option value="24">24</option>
+						<option value="32">32</option>
+						<option value="40">40</option>
+						<option value="48">48</option>
+						<option value="56">56</option>
+						<option value="64">64</option>
+					</select>
+					<br />
+					<h5 class="sidebar-title">Colors</h5>
+					<div class="sidebar-divider"></div>
+					<div class="col-12 sidebar-content my-15">
+						<label class="mr-10" for="color">Brush color: </label>
 						<input id="color" type="color" value="#000000">
 					</div>
-							
-					<div class="col-6">
-						<label for="bg-color">Background color: </label>
+					
+					<div class="col-12 sidebar-content my-15">
+						<label class="mr-10" for="bg-color">Background color: </label>
 						<input id="bg-color" type="color" value="#ffffff">
 					</div>
+					<h5 class="sidebar-title">Options</h5>
+					<div class="sidebar-content my-0">
+						<div class="sidebar-divider"></div>
+						
+						<div class="custom-switch my-20">
+							<input type="checkbox" id="eraser" value="">
+							<label for="eraser">Toggle Eraser</label>
+						</div>
+						<div class="custom-switch my-20">
+							<input type="checkbox" id="random" value="">
+							<label for="random">Random color</label>
+						</div>
+						<div class="custom-switch my-20">
+							<input type="checkbox" id="toggle-grid" value="">
+							<label for="toggle-grid">Toggle grid lines</label>
+						</div>
+						<br>
+						<button id="clear" class="btn btn-primary btn-block" type="button">Clear board</button>
+					</div>
 				</div>
-
-				<div class="row">
-					<div class="custom-switch col-sm-4 pb-10">
-	  					<input type="checkbox" id="eraser" value="">
-	  					<label for="eraser">Toggle Eraser</label>
-					</div>
-					<div class="custom-switch col-sm-4 pb-10">
-	  					<input type="checkbox" id="random" value="">
-	  					<label for="random">Random color</label>
-					</div>
-					<div class="custom-switch col-sm-4 pb-10">
-	  					<input type="checkbox" id="toggle-grid" value="">
-	  					<label for="toggle-grid">Toggle grid lines</label>
-					</div>
-
-					<div class=" col-12 col-md-4">
-				    	<button id="clear" class="btn btn-primary btn-block" type="button">Clear board</button>
-  					</div>
-				</div>
-
-				
 			</div>
-			<div id="sketchpad" class="sketchpad align-self-center" draggable="false"></div>
+			<!-- Content wrapper -->
+			<div class="content-wrapper">
+				<div id="sketchpad" class="sketchpad " draggable="false"></div>
+			</div>
 		</div>
-	</main>
-	<footer>
 		
-	</footer>
+	</div>
+	
+	<!-- <footer> -->
+	
+	<!-- </footer> -->
 	<script src="js/app.js"></script>
 	<script src="js/halfmoon.js"></script>
 </body>
