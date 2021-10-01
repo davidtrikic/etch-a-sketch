@@ -7,6 +7,8 @@ const eraserSwitch = document.getElementById('eraser');
 const randomSwitch= document.getElementById('random');
 const clearButton = document.getElementById('clear');
 const gridLineSwitch = document.getElementById('toggle-grid');
+const darkModeBtn = document.getElementById('dark-mode');
+const contentWrapper = document.getElementById('content-wrapper');
 const root = document.documentElement;
 let brushColor, isRandom = false, isEraser = false;
 
@@ -114,4 +116,13 @@ gridLineSwitch.addEventListener('click', function() {
 	sketchpad.childNodes.forEach(function(node) {
 		node.classList.toggle('grid-square');
 	});
+});
+
+// Background swith
+darkModeBtn.addEventListener('click', function() {
+	if (root.childNodes[2].classList.contains('dark-mode')) {
+		contentWrapper.style.backgroundImage = 'url(../images/wickedbackground_dark.svg)';
+		return
+	} 
+	contentWrapper.style.backgroundImage = 'url(../images/wickedbackground.svg)';
 });
