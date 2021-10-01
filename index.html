@@ -10,39 +10,58 @@
 </head>
 <body ondragstart=" return false">
 	<main>
-		<h1>Etch-A-Sketch</h1>
+		<h1 class="text-center">Etch-A-Sketch</h1>
 		<div class="container">
-			<div class="controls">
-				<label for="grid-size">Grid Size: </label>
-				<input id="grid-size" type="number" step="8" min="8" max="64" value="24">
+			<div class="controls p-5 pb-20 p-sm-10">
+				<div class="row pb-10">
+					<label for="grid-size" class="col-5 col-sm-4">Select Grid Size: </label>
+					<select class="form-control col-3" id="grid-size">
+					  <option value="" selected="selected" disabled="disabled">Select size</option>
+					  <option value="8">8</option>
+					  <option value="16" selected="selected">16</option>
+					  <option value="24">24</option>
+					  <option value="32">32</option>
+					  <option value="40">40</option>
+					  <option value="48">48</option>
+					  <option value="56">56</option>
+					  <option value="64">64</option>
+					</select>
+				</div>
 		
-				<label for="color">Brush color: </label>
-				<input id="color" type="color" value="#000000">
-		
-				<label for="bg-color">Background color: </label>
-				<input id="bg-color" type="color" value="#ffffff"><br>
-
-				<div class="row">
-					<div class="custom-switch col col-sm-4">
-	  					<input type="checkbox" id="eraser" value="">
-	  					<label for="eraser">Toggle Eraser</label>
+				<div class="row pb-10">
+					<div class="col-6">
+						<label for="color">Brush color: </label>
+						<input id="color" type="color" value="#000000">
 					</div>
-					<div class="custom-switch col col-sm-4">
-	  					<input type="checkbox" id="random" value="">
-	  					<label for="random">Random color</label>
-					</div>
-					<div class="custom-switch col col-sm-4">
-	  					<input type="checkbox" id="toggle-grid" value="">
-	  					<label for="toggle-grid">Toggle grid lines</label>
+							
+					<div class="col-6">
+						<label for="bg-color">Background color: </label>
+						<input id="bg-color" type="color" value="#ffffff">
 					</div>
 				</div>
 
-				<!-- <button id="clear" class="button button-clear">Clear board</button> -->
-				<div class="col-sm-3">
-				    <button id="clear" class="btn btn-primary btn-block" type="button">Clear board</button>
-  				</div>
+				<div class="row">
+					<div class="custom-switch col-sm-4 pb-10">
+	  					<input type="checkbox" id="eraser" value="">
+	  					<label for="eraser">Toggle Eraser</label>
+					</div>
+					<div class="custom-switch col-sm-4 pb-10">
+	  					<input type="checkbox" id="random" value="">
+	  					<label for="random">Random color</label>
+					</div>
+					<div class="custom-switch col-sm-4 pb-10">
+	  					<input type="checkbox" id="toggle-grid" value="">
+	  					<label for="toggle-grid">Toggle grid lines</label>
+					</div>
+
+					<div class=" col-12 col-md-4">
+				    	<button id="clear" class="btn btn-primary btn-block" type="button">Clear board</button>
+  					</div>
+				</div>
+
+				
 			</div>
-			<div id="sketchpad" class="sketchpad" draggable="false"></div>
+			<div id="sketchpad" class="sketchpad align-self-center" draggable="false"></div>
 		</div>
 	</main>
 	<footer>

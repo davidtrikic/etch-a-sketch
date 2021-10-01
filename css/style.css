@@ -6,8 +6,9 @@
 .container {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	min-width: 320px;
 }
+
 .sketchpad {
 	border-right: 1px solid rgba(0, 0, 0, .5);
 	border-bottom: 1px solid rgba(0, 0, 0, .5);
@@ -26,7 +27,11 @@
 .grid-square:hover {
 	background-color: var(--hover-color);
 }
-
+input[type="color"] {
+	width: 32px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
 
 
 /* Media Queries - keep sketchpad 1:1 ratio across different screen sizes */
@@ -36,6 +41,10 @@
 		width: 370px;
 		height: 370px;
 	}
+	input[type="color"] {
+	width: 64px;
+	}
+
 }
 @media screen and (min-width: 410px) {
 	.sketchpad {
@@ -61,7 +70,7 @@
 		height: 570px;
 	}
 }
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 992px) {
 	.container {
 		flex-direction: row;
 	}

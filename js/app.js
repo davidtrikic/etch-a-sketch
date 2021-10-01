@@ -1,6 +1,6 @@
 "use strict";
 const sketchPad = document.getElementById('sketchpad');
-const gridSizeInput = document.getElementById('grid-size');
+const gridSizeSelect = document.getElementById('grid-size');
 const brushColorInput = document.getElementById('color');
 const backgroundColorInput = document.getElementById('bg-color');
 const eraserSwitch = document.getElementById('eraser');
@@ -14,9 +14,11 @@ window.onload = createGrid;
 
 
 // Change grid size on input element
-gridSizeInput.addEventListener('change', function() {
+gridSizeSelect.addEventListener('change', function() {
+	console.log(gridSizeSelect.value);
 	createGrid();
-});
+})
+
 
 function createGrid() {
 	let square, i;
@@ -24,9 +26,9 @@ function createGrid() {
 	clearGrid(); // Empty grid before creating a new one
 
 	// Set CSS grid size according to input value
-	root.style.setProperty('--grid-size', `repeat(${gridSizeInput.value}, minmax(1px, 72px))`);
+	root.style.setProperty('--grid-size', `repeat(${gridSizeSelect.value}, minmax(1px, 72px))`);
 
-	for (i = 0; i < gridSizeInput.value ** 2; i++) {
+	for (i = 0; i < gridSizeSelect.value ** 2; i++) {
 		square = document.createElement('div');
 		square.setAttribute('class', `grid-square`);
 		sketchpad.appendChild(square);
