@@ -129,8 +129,8 @@ darkModeBtn.addEventListener('click', backgroundSwitch);
 
 function backgroundSwitch() {
 	if (document.body.classList.contains('dark-mode')) {
-		contentWrapper.style.backgroundImage = 'url(/images/wickedbackground_dark.svg)';
-		return
+		contentWrapper.style.backgroundImage = 'url(../images/wickedbackground_dark.svg)';
+		return;
 	} 
-	contentWrapper.style.backgroundImage = 'url(/images/wickedbackground.svg)';
+	contentWrapper.style.backgroundImage = 'url(../images/wickedbackground.svg)';
 }
