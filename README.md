@@ -4,8 +4,9 @@ The Odin Project - Javascript DOM Project
 ## TO-DO
 
 - add touch support
-- add tooltips
-- make sketchpad bigger on big screens
+- README.md
+- ~~add tooltips~~
+- ~~make sketchpad bigger on big screens~~
 - comment code
 - ~~fix sketchpad alignment~~
 - ~~update footer design~~
