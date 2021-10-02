@@ -4,6 +4,10 @@ The Odin Project - Javascript DOM Project
 ## TO-DO
 
 - add touch support
-- add popup for sidebar and dark mode on page load
-- fix sketchpad alignment
-- update footer design
+- add tooltips
+- make sketchpad bigger on big screens
+~~- fix sketchpad alignment~~
+~~- update footer design~~
+~~- toogle grid lines switch direction~~
+~~- sketchpad shadow~~
+~~- update dark background on page refresh~~

@@ -12,14 +12,13 @@ const contentWrapper = document.getElementById('content-wrapper');
 const root = document.documentElement;
 let brushColor, isRandom = false, isEraser = false;
 
-window.onload = createGrid;
-
-
-// Change grid size on input element
-gridSizeSelect.addEventListener('change', function() {
-	console.log(gridSizeSelect.value);
+window.onload = function() {
 	createGrid();
-})
+	backgroundSwitch();
+}
+
+// window.onload = createGrid;
+// window.onload = backgroundSwitch;
 
 
 function createGrid() {
@@ -40,6 +39,12 @@ function createGrid() {
 	getBrushcolor();
 	getBackgroundColor();
 }
+
+// Change grid size on input element
+gridSizeSelect.addEventListener('change', function() {
+	console.log(gridSizeSelect.value);
+	createGrid();
+})
 
 function clearGrid() {
 	while (sketchpad.firstChild) {
@@ -106,12 +111,13 @@ function toggleRandomColor() {
 	isRandom = false;
 }
 
+// Clear button
 clearButton.addEventListener('click', function() {
 	sketchpad.childNodes.forEach(function(node) {
 		node.style.backgroundColor = '';
 	});
 });
-
+// Grid lines switch
 gridLineSwitch.addEventListener('click', function() {
 	sketchpad.childNodes.forEach(function(node) {
 		node.classList.toggle('grid-square');
@@ -119,10 +125,12 @@ gridLineSwitch.addEventListener('click', function() {
 });
 
 // Background swith
-darkModeBtn.addEventListener('click', function() {
-	if (root.childNodes[2].classList.contains('dark-mode')) {
+darkModeBtn.addEventListener('click', backgroundSwitch);
+
+function backgroundSwitch() {
+	if (document.body.classList.contains('dark-mode')) {
 		contentWrapper.style.backgroundImage = 'url(../images/wickedbackground_dark.svg)';
 		return
 	} 
 	contentWrapper.style.backgroundImage = 'url(../images/wickedbackground.svg)';
-});
+}
