@@ -1,5 +1,5 @@
 :root {
-	--grid-size: repeat(24, minmax(9px, 72px));
+	--grid-size: repeat(24, minmax(2px, 94px));
 	--hover-color: #000;
 }
 
