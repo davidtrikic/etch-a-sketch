@@ -22,6 +22,9 @@ input[type="color"] {
 	grid-template-columns: var(--grid-size);
 	grid-template-rows: var(--grid-size);
 }
+.sketchpad-border {
+	margin-top: 6rem;
+}
 .grid-square {
 	border-top: 1px solid rgba(0 ,0, 0, .5);
 	border-left: 1px solid rgba(0 ,0, 0, .5);
@@ -64,8 +67,8 @@ footer {
 }
 @media screen and (min-width: 410px) {
 	.sketchpad {
-		width: 400px;
-		height: 400px;
+		width: 390px;
+		height: 390px;
 	}
 }
 @media screen and (min-width: 460px) {
@@ -89,8 +92,10 @@ footer {
 		height: 560px;
 	}
 }
-@media screen and (min-width: 992px) {
-	.container {
-		flex-direction: row;
+@media screen and (min-width: 1400px) {
+	.sketchpad {
+		width: 750px;
+		height: 750px;
 	}
 }
+
