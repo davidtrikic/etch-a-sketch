@@ -27,7 +27,7 @@ function createGrid() {
 	clearGrid(); // Empty grid before creating a new one
 
 	// Set CSS grid size according to input value
-	root.style.setProperty('--grid-size', `repeat(${gridSizeSelect.value}, minmax(1px, 72px))`);
+	root.style.setProperty('--grid-size', `repeat(${gridSizeSelect.value}, minmax(1px, 94px))`);
 
 	for (i = 0; i < gridSizeSelect.value ** 2; i++) {
 		square = document.createElement('div');
