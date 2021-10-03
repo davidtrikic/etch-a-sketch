@@ -12,14 +12,13 @@ const contentWrapper = document.getElementById('content-wrapper');
 const root = document.documentElement;
 let brushColor, isRandom = false, isEraser = false;
 
+
 window.onload = function() {
 	createGrid();
 	backgroundSwitch();
 }
 
-// window.onload = createGrid;
-// window.onload = backgroundSwitch;
-
+alert('hello');
 
 function createGrid() {
 	let square, i;
@@ -35,6 +34,7 @@ function createGrid() {
 		sketchpad.appendChild(square);
 
 		square.addEventListener('mouseover', paintSquare);
+		square.addEventListener('touchstart', paintSquare);
 	}
 	getBrushcolor();
 	getBackgroundColor();
