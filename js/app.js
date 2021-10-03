@@ -34,7 +34,7 @@ function createGrid() {
 		sketchpad.appendChild(square);
 
 		square.addEventListener('mouseover', paintSquare);
-		square.addEventListener('touchstart', function() {
+		square.addEventListener('touchmove', function() {
 			buttons = 1;
 			paintSquare();
 		});
