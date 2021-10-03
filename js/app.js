@@ -35,8 +35,7 @@ function createGrid() {
 
 		square.addEventListener('mouseover', paintSquare);
 		square.addEventListener('touchmove', function() {
-			buttons = 1;
-			paintSquare();
+			alert('moved');
 		});
 	}
 	getBrushcolor();
@@ -72,7 +71,7 @@ function getBackgroundColor() {
 
 
 function paintSquare(e) {
-	if (e.buttons == 1 || e.c) { // Paint div if mouse button is pressed
+	if (e.buttons == 1) { // Paint div if mouse button is pressed
 		if (isRandom) {
 			e.target.style.background = `hsl(${Math.round(Math.random() * 360)}, 100%, 50%)`;
 			return;
