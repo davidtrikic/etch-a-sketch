@@ -18,7 +18,6 @@ window.onload = function() {
 	backgroundSwitch();
 }
 
-alert('hi');
 
 function createGrid() {
 	let square, i;
@@ -34,8 +33,9 @@ function createGrid() {
 		sketchpad.appendChild(square);
 
 		square.addEventListener('mouseover', paintSquare);
-		square.addEventListener('touchmove', function() {
-			alert('moved');
+		square.addEventListener('pointerenter', function(event) {
+			console.log(event.target);
+			paintSquare(event);
 		});
 	}
 	getBrushcolor();
@@ -71,7 +71,7 @@ function getBackgroundColor() {
 
 
 function paintSquare(e) {
-	if (e.buttons == 1) { // Paint div if mouse button is pressed
+	if (e.buttons == 1 || e.target) { // Paint div if mouse button is pressed
 		if (isRandom) {
 			e.target.style.background = `hsl(${Math.round(Math.random() * 360)}, 100%, 50%)`;
 			return;
@@ -131,8 +131,8 @@ darkModeBtn.addEventListener('click', backgroundSwitch);
 
 function backgroundSwitch() {
 	if (document.body.classList.contains('dark-mode')) {
-		contentWrapper.style.backgroundImage = 'url(../images/wickedbackground_dark.svg)';
+		contentWrapper.style.backgroundImage = 'url("../images/wickedbackground_dark.svg")';
 		return;
 	} 
-	contentWrapper.style.backgroundImage = 'url(../images/wickedbackground.svg)';
+	contentWrapper.style.backgroundImage = 'url("../images/wickedbackground.svg")';
 }
