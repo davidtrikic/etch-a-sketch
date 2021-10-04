@@ -5,6 +5,8 @@ The Odin Project - Javascript DOM Project
 
 - add touch support
 - README.md
+- fix background links
+- add mobile popup
 - ~~add tooltips~~
 - ~~make sketchpad bigger on big screens~~
 - comment code

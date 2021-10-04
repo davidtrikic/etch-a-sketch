@@ -29,14 +29,12 @@ input[type="color"] {
 	border-top: 1px solid rgba(0 ,0, 0, .5);
 	border-left: 1px solid rgba(0 ,0, 0, .5);
 }
-.grid-square:hover {
-	background-color: var(--hover-color);
-}
+
 #grid-size {
 	margin-left: 2.5rem;
 }
 .content-wrapper {
-	background: url(../images/wickedbackground.svg);
+	background: url("../images/wickedbackground.svg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -45,6 +43,17 @@ input[type="color"] {
 }
 footer {
 	margin-top: auto;
+}
+.popup {
+	position: absolute;
+	top: 10px;
+	right: calc(50% - 80px);
+	z-index: 9;
+	opacity: 1;
+	transition: opacity 1s;
+}
+.popup-hidden {
+	opacity: 0;
 }
 
 /* Media Queries - keep sketchpad 1:1 ratio across different screen sizes */
@@ -90,6 +99,14 @@ footer {
 	.sketchpad {
 		width: 560px;
 		height: 560px;
+	}
+}
+@media screen and (min-width: 960px) {
+	.grid-square:hover {
+	background-color: var(--hover-color);
+	}
+	.popup {
+		display: none;
 	}
 }
 @media screen and (min-width: 1400px) {

@@ -9,13 +9,14 @@ const clearButton = document.getElementById('clear');
 const gridLineSwitch = document.getElementById('toggle-grid');
 const darkModeBtn = document.getElementById('dark-mode');
 const contentWrapper = document.getElementById('content-wrapper');
+const popupMsg = document.getElementById('popup');
 const root = document.documentElement;
 let brushColor, isRandom = false, isEraser = false;
 
 
 window.onload = function() {
-	createGrid();
 	backgroundSwitch();
+	createGrid();
 }
 
 
@@ -32,11 +33,8 @@ function createGrid() {
 		square.setAttribute('class', `grid-square`);
 		sketchpad.appendChild(square);
 
-		square.addEventListener('mouseover', paintSquare);
-		square.addEventListener('pointerenter', function(event) {
-			console.log(event.target);
-			paintSquare(event);
-		});
+		square.addEventListener('pointerover', paintSquare);
+		square.addEventListener('pointerdown', paintSquare);
 	}
 	getBrushcolor();
 	getBackgroundColor();
@@ -71,7 +69,7 @@ function getBackgroundColor() {
 
 
 function paintSquare(e) {
-	if (e.buttons == 1 || e.target) { // Paint div if mouse button is pressed
+	if (e.buttons == 1) { // Paint div if mouse button is pressed
 		if (isRandom) {
 			e.target.style.background = `hsl(${Math.round(Math.random() * 360)}, 100%, 50%)`;
 			return;
@@ -104,7 +102,10 @@ function toggleEraser() {
 randomSwitch.addEventListener('change', toggleRandomColor);
 
 function toggleRandomColor() {
-	if (eraserSwitch.checked) eraserSwitch.checked = false;
+	if (eraserSwitch.checked) {
+		eraserSwitch.checked = false;
+		isEraser = false;
+	}
 
 	if (randomSwitch.checked) {
 		isRandom = true;
@@ -126,7 +127,7 @@ gridLineSwitch.addEventListener('click', function() {
 	});
 });
 
-// Background swith
+// Background switch
 darkModeBtn.addEventListener('click', backgroundSwitch);
 
 function backgroundSwitch() {
@@ -136,3 +137,8 @@ function backgroundSwitch() {
 	} 
 	contentWrapper.style.backgroundImage = 'url("../images/wickedbackground.svg")';
 }
+
+// Popup message
+setTimeout(function**(){
+**	popupMsg.classList.add('popup-hidden');
+}, 7000)
