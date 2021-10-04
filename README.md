@@ -23,3 +23,8 @@ The goal is to make a clone of a popular [Etch-A-Sketch](https://en.wikipedia.or
 
 - Responsive layout with utilization of a CSS Grid and Flexbox 
 - Dark and light theme
+
+## Screenshots
+
+![Screenshot_1](screenshots/screenshot_1.png)
+![Screenshot_2](screenshots/screenshot_2.png)
