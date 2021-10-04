@@ -1,17 +1,25 @@
-# etch-a-sketch
-The Odin Project - Javascript DOM Project
+# Etch-A-Sketch Clone
 
-## TO-DO
+This project is a part of [The Odin Project](https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/etch-a-sketch-project) Javascript curriculum
 
-- add touch support
-- README.md
-- fix background links
-- add mobile popup
-- ~~add tooltips~~
-- ~~make sketchpad bigger on big screens~~
-- comment code
-- ~~fix sketchpad alignment~~
-- ~~update footer design~~
-- ~~toogle grid lines switch direction~~
-- ~~sketchpad shadow~~
-- ~~update dark background on page refresh~~
+
+The goal is to make a clone of a popular [Etch-A-Sketch](https://en.wikipedia.org/wiki/Etch_A_Sketch) drawing toy
+
+### Live preview: [link](https://davidtrikic.github.io/etch-a-sketch/)
+
+## Built with
+
+- HTML
+- CSS
+- Vanilla Javascript
+- Halfmoon CSS Library
+
+### Other tools used
+
+- [modern-normalize](https://github.com/sindresorhus/modern-normalize)
+- [Font Awesome](https://fontawesome.com/) icons
+
+### Extras
+
+- Responsive layout with utilization of a CSS Grid and Flexbox 
+- Dark and light theme
