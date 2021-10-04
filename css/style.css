@@ -34,7 +34,6 @@ input[type="color"] {
 	margin-left: 2.5rem;
 }
 .content-wrapper {
-	background: url("../images/wickedbackground.svg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
