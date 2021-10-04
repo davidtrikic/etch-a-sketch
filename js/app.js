@@ -1,6 +1,8 @@
 "use strict";
+
+// Elements
 const sketchPad = document.getElementById('sketchpad');
-const gridSizeSelect = document.getElementById('grid-size');
+const gridSizeSelect = document.getElementById('grid-size-select');
 const brushColorInput = document.getElementById('color');
 const backgroundColorInput = document.getElementById('bg-color');
 const eraserSwitch = document.getElementById('eraser');
@@ -11,6 +13,7 @@ const darkModeBtn = document.getElementById('dark-mode');
 const contentWrapper = document.getElementById('content-wrapper');
 const popupMsg = document.getElementById('popup');
 const root = document.documentElement;
+
 let brushColor, isRandom = false, isEraser = false;
 
 
@@ -34,7 +37,7 @@ function createGrid() {
 		sketchpad.appendChild(square);
 
 		square.addEventListener('pointerover', paintSquare);
-		square.addEventListener('pointerdown', paintSquare);
+		square.addEventListener('pointerdown', paintSquare); // Listener for touch screens
 	}
 	getBrushcolor();
 	getBackgroundColor();
@@ -42,7 +45,6 @@ function createGrid() {
 
 // Change grid size on input element
 gridSizeSelect.addEventListener('change', function() {
-	console.log(gridSizeSelect.value);
 	createGrid();
 })
 
@@ -95,8 +97,6 @@ function toggleEraser() {
 		return;	
 	}
 	isEraser = false;
-
-	getBrushcolor();
 }
 
 randomSwitch.addEventListener('change', toggleRandomColor);
@@ -120,6 +120,7 @@ clearButton.addEventListener('click', function() {
 		node.style.backgroundColor = '';
 	});
 });
+
 // Grid lines switch
 gridLineSwitch.addEventListener('click', function() {
 	sketchpad.childNodes.forEach(function(node) {

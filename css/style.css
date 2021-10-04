@@ -3,6 +3,8 @@
 	--hover-color: #000;
 }
 
+/* Navbar */
+
 h1 {
 	font-size: 2.5rem;
 }
@@ -13,14 +15,24 @@ input[type="color"] {
 .navbar {
 	min-width: 300px;
 }
+
+/* Content wrapper */
+
+.content-wrapper {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* sketchpad */
+
 .sketchpad {
-	border-right: 1px solid rgba(0, 0, 0, .5);
-	border-bottom: 1px solid rgba(0, 0, 0, .5);
 	width: 300px;
 	height: 300px;
 	display: grid;
 	grid-template-columns: var(--grid-size);
 	grid-template-rows: var(--grid-size);
+	border-right: 1px solid rgba(0, 0, 0, .5);
+	border-bottom: 1px solid rgba(0, 0, 0, .5);
 }
 .sketchpad-border {
 	margin-top: 6rem;
@@ -30,19 +42,23 @@ input[type="color"] {
 	border-left: 1px solid rgba(0 ,0, 0, .5);
 }
 
-#grid-size {
+/* Sidebar */
+
+#grid-size-select {
 	margin-left: 2.5rem;
 }
-.content-wrapper {
-	background-repeat: no-repeat;
-	background-size: cover;
+
+/* Footer */
+
+footer {
+	margin-top: auto;
 }
 .attribution {
 	font-size: 8px;
 }
-footer {
-	margin-top: auto;
-}
+
+/* Popup message for small screens */
+
 .popup {
 	position: absolute;
 	top: 10px;
@@ -55,7 +71,7 @@ footer {
 	opacity: 0;
 }
 
-/* Media Queries - keep sketchpad 1:1 ratio across different screen sizes */
+/* Media Queries - keep sketchpad at 1:1 ratio across different screen sizes */
 
 @media screen and (min-width: 350px) {
 	.sketchpad {
@@ -71,7 +87,6 @@ footer {
 	input[type="color"] {
 	width: 64px;
 	}
-
 }
 @media screen and (min-width: 410px) {
 	.sketchpad {
@@ -114,4 +129,3 @@ footer {
 		height: 750px;
 	}
 }
-
