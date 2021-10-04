@@ -142,5 +142,3 @@ function backgroundSwitch() {
 setTimeout(function(){
 	popupMsg.classList.add('popup-hidden');
 }, 7000)
-
-url("../images/wickedbackground.svg")
